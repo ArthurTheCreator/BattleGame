@@ -2,7 +2,7 @@
 {
     public enum EnumAction
     {
-        LightAttack,
+        LightAttack = 1,
         MediumAttack,
         HeavyAttack,
         Defense,
