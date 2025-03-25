@@ -14,4 +14,14 @@ public static class LightAttack
     {
         return random.Next(PossibleDamageRange.Item1, PossibleDamageRange.Item2 + 1);
     }
+
+    public static bool HitResult()
+    {
+        return random.Next(1, 101) <= (HitPercentage) ? true : false;
+    }
+
+    public static int GetAttack()
+    {
+        return HitResult() == true ? GetDamage() : 0;
+    }
 }
