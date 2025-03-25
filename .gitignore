@@ -1,12 +1,24 @@
-bin/
-obj/
-.cache
-.nuget.dgspec.json
-.nuget.g.props
-.nuget.g.targets
-.json
-.g.cs
-.editorconfig
-.user
-.suo
+### Visual Studio & C# ###
+## Pastas de build e debug
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos gerados pelo VS
 .vs/
+.vscode/
+*.VC.db
+*.VC.VC.opendb
+
+## Binários e logs
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.nupkg
