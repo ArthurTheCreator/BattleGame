@@ -1,7 +1,6 @@
 ﻿namespace BattleEntities.EnumActions
 {
-    public class EnumAction { }
-    public enum Action
+    public enum EnumAction
     {
         LightAttack,
         MediumAttack,

@@ -17,7 +17,7 @@ public static class HeavyAttack
 
     public static bool HitResult()
     {
-        return random.Next(1,101) <= (HitPercentage) ? true : false;
+        return random.Next(1,11) <= (HitPercentage / 10) ? true : false;
     }
 
     public static int GetAttack()
