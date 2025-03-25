@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BattleEntities.EnumActions
+﻿namespace BattleEntities.EnumActions
 {
-    internal class EnumAction
+    public class EnumAction { }
+    public enum Action
     {
+        LightAttack,
+        MediumAttack,
+        HeavyAttack,
+        Defense,
+        HealthPotion
     }
 }
