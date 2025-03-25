@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BattleEntities.Actions
+﻿namespace BattleEntities.Actions
 {
-    internal class HealthPotion
+    public class HealthPotion
     {
+        public string Name { get; } = "Poção de Cura";
+        public int HealthRegeneration { get; } = 20;
+
+        public HealthPotion() { }
     }
 }

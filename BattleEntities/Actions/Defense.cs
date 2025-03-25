@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BattleEntities.Actions
+﻿namespace BattleEntities.Actions
 {
-    internal class Defense
+    public class Defense
     {
+        public bool IsDefending { get; set; }
+
+        public Defense(bool isDefending)
+        {
+            IsDefending = isDefending;
+        }
+
+        public Defense() { }
     }
 }
