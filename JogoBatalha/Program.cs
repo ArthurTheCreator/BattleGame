@@ -19,7 +19,7 @@ Console.WriteLine("Vamos começar?");
 
 Player player = new Player(name);
 
-Round.Battle(play, EnumAction.HeavyAttack, ini);
+Round.Battle(player, EnumAction.HeavyAttack, enemy);
 
 static void PrintGameName()
 {

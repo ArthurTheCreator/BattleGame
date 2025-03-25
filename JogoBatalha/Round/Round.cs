@@ -8,6 +8,7 @@ public static class Round
 {
     public static void Battle(Player player, EnumAction enumAction, Enemy enemy)
     {
+        var a = EnemyMoveset.EnemyAction(enemy);
         switch (enumAction)
         {
             case EnumAction.LightAttack:
