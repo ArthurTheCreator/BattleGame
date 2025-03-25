@@ -10,7 +10,7 @@ public static class EnemyMoveset
         {
             case Enemy e when e.Hp > 80:
                 break;
-            case Enemy e when e.Hp <= 80 && e.PotionStock.Count() > 0:
+            case Enemy e when e.Hp <= 80 && e.HealthPotionStock.Count() > 0:
                 break;
 
         } 
