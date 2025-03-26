@@ -2,14 +2,17 @@
 using BattleEntities.Characters;
 using JogoBatalha.Round;
 using MessageLibrary.Enum;
-using MessageLibrary.Message.Player;
+using MessageLibrary.Message.GetMessage;
 
 Enemy enemy = new Enemy();
 
 var lingua = int.Parse(Console.ReadLine());
 var value = (EnumLanguage)Enum.ToObject(typeof(EnumLanguage), lingua);
-PlayerMessage.EnumLanguage = value;
-Console.WriteLine(PlayerMessage.GetSuccessTakePotionMessage());
+GetMessage.EnumLanguage = value;
+for (var i = 0; i < 10; i++)
+{
+    Console.WriteLine(GetMessage.GetPlayerSuccessTakePotionMessage());
+}
 
 PrintGameName();
 
