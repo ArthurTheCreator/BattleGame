@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BattleEntities\BattleEntities.csproj" />
+    <ProjectReference Include="..\MessageLibrary\MessageLibrary.csproj" />
   </ItemGroup>
 
 </Project>
