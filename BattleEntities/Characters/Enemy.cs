@@ -1,4 +1,5 @@
 ﻿using BattleEntities.Actions;
+using BattleEntities.Actions.ActionResult;
 
 namespace BattleEntities.Characters
 {
@@ -15,5 +16,11 @@ namespace BattleEntities.Characters
         public Enemy(string name) { Name = name; }
 
         public Enemy() { }
+
+        public TakePotionResult TakePotion()
+        {
+            Hp += 20;
+            return new TakePotionResult().EnemySuccessTakePotion();
+        }
     }
 }

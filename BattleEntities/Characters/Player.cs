@@ -1,4 +1,5 @@
 ﻿using BattleEntities.Actions;
+using BattleEntities.Actions.ActionResult;
 
 namespace BattleEntities.Characters
 {
@@ -16,5 +17,24 @@ namespace BattleEntities.Characters
 
 
         public Player() { }
+
+        public TakePotionResult TakePotion()
+        {
+            var result = new TakePotionResult();
+            if (HealthPotionStock.Count > 0 && Hp <= 80)
+            {
+                Hp += 20;
+                return result.PlayerSuccessTakePotion();
+            }
+
+            else if (HealthPotionStock.Count > 0 && Hp > 80)
+                return result.PlayerFailureTakePotionHP();
+
+            else if (HealthPotionStock.Count == 0 && Hp > 80)
+                return result.PlayerFailureTakePotionStockAndHP();
+
+            else return result.PlayerFailureTakePotionStock();
+        }
+
     }
 }
