@@ -41,7 +41,7 @@ Console.Clear();
 PrintGameName();
 
 Console.WriteLine("Você vai enfrentar um oponente no seu nível de força!\n");
-Console.WriteLine("Você pode se defender, fazer um ataque leve, médio ou pesado e se curar, caso tenha levado dano");
+Console.WriteLine("Você pode se defender, se curar e fazer um ataque leve, médio ou pesado (uma ação por turno)");
 Console.WriteLine("Qual será sua escolha?\n\n");
 
 foreach (EnumAction action in Enum.GetValues(typeof(EnumAction)))

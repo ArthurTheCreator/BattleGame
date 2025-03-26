@@ -1,4 +1,5 @@
-﻿using BattleEntities.Actions.Attacks;
+﻿using BattleEntities.Actions;
+using BattleEntities.Actions.Attacks;
 using BattleEntities.Characters;
 using BattleEntities.EnumActions;
 
@@ -6,8 +7,10 @@ namespace JogoBatalha.Round;
 
 public static class Round
 {
-    public static void Battle(Player player, int number, Enemy enemy)
+    public static (int, bool) Battle(Player player, int number, Enemy enemy)
     {
+        int resultOfAction = 0;
+        bool isDefense = false;
         bool wrongAnswer = true;
         while (wrongAnswer)
         {
@@ -15,28 +18,30 @@ public static class Round
             {
                 case 1:
                     wrongAnswer = false;
-                    Console.WriteLine(LightAttack.GetAttack());
-                    break;
+                    resultOfAction = LightAttack.GetAttack();
+                    return (resultOfAction, isDefense);
                 case 2:
                     wrongAnswer = false;
-                    Console.WriteLine(MediumAttack.GetAttack());
-                    break;
+                    resultOfAction = MediumAttack.GetAttack();
+                    return (resultOfAction, isDefense);
                 case 3:
                     wrongAnswer = false;
-                    var damage = HeavyAttack.GetAttack();
-                    Console.WriteLine(damage);
-                    enemy.Hp = enemy.Hp - damage;
-                    break;
+                    resultOfAction = HeavyAttack.GetAttack();
+                    return (resultOfAction, isDefense);
                 case 4:
                     wrongAnswer = false;
-                    break;
+                    isDefense = true;
+                    return (resultOfAction, isDefense);
                 case 5:
                     wrongAnswer = false;
-                    break;
+                    resultOfAction = 20;
+                    if(player.ListHealthPotion.Count > 0)
+                    return (resultOfAction, isDefense);
                 default:
                     Console.WriteLine("Por favor, digite corretamente!\n");
                     throw new Exception();
             }
         }
+        return resultOfAction;
     }
 }
