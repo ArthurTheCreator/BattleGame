@@ -6,22 +6,11 @@ public static class MediumAttack
     public static (int, int) PossibleDamageRange { get; } = (10, 20);
     public static int HitPercentage { get; } = 80;
 
-    #region Random
-    private static Random random = new Random();
+    #region Actions
+    public static int GetDamage() => AttackHelper.GetDamage(PossibleDamageRange);
+
+    public static bool HitResult() => AttackHelper.HitResult(HitPercentage);
+
+    public static int GetAttack() => AttackHelper.GetAttack(PossibleDamageRange, HitPercentage);
     #endregion
-
-    public static int GetDamage()
-    {
-        return random.Next(PossibleDamageRange.Item1, PossibleDamageRange.Item2 + 1);
-    }
-
-    public static bool HitResult()
-    {
-        return random.Next(1, 101) <= (HitPercentage) ? true : false;
-    }
-
-    public static int GetAttack()
-    {
-        return HitResult() == true ? GetDamage() : 0;
-    }
 }
