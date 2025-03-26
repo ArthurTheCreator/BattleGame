@@ -9,25 +9,26 @@ public static class EnemyMoveset
 {
     private static Random random = new Random();
 
+    #region ChoiceOfActionBasedOnCurrentLife
     public static ReturnAction EnemyAction(Enemy enemy)
     {
         var returnAction = new ReturnAction();
         switch (enemy)
         {
             case Enemy e when e.Hp > 80:
-                returnAction = ChooseAction1();
+                returnAction = Moveset1();
                 break;
             case Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() > 0:
-                returnAction = ChooseAction2();
+                returnAction = Moveset2();
                 break;
             case Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() == 0:
-                returnAction = ChooseAction1();
+                returnAction = Moveset1();
                 break;
             case Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() > 0:
-                returnAction = ChooseAction3();
+                returnAction = Moveset3();
                 break;
             case Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() == 0:
-                returnAction = ChooseAction4();
+                returnAction = Moveset4();
                 break;
             default:
                 returnAction.Attack(HeavyAttack.GetAttack(), EnumAction.HeavyAttack);
@@ -35,12 +36,18 @@ public static class EnemyMoveset
         }
         return returnAction;
     }
+    #endregion
 
+    #region Movesets
+    #region RandomAttack
     public static EnumAction ChooseAttack()
     {
         return (EnumAction)random.Next(3);
     }
-    public static ReturnAction ChooseAction1()
+    #endregion
+
+    #region Moveset1
+    public static ReturnAction Moveset1()
     {
         var returnAction = new ReturnAction();
         switch (random.Next(2))
@@ -71,8 +78,10 @@ public static class EnemyMoveset
         }
         return returnAction;
     }
+    #endregion
 
-    public static ReturnAction ChooseAction2()
+    #region Moveset2
+    public static ReturnAction Moveset2()
     {
         var returnAction = new ReturnAction();
         switch (random.Next(1, 11))
@@ -106,8 +115,10 @@ public static class EnemyMoveset
         }
         return returnAction;
     }
+    #endregion
 
-    public static ReturnAction ChooseAction3()
+    #region Moveset3
+    public static ReturnAction Moveset3()
     {
         var returnAction = new ReturnAction();
         switch (random.Next(1, 11))
@@ -141,8 +152,10 @@ public static class EnemyMoveset
         }
         return returnAction;
     }
+    #endregion
 
-    public static ReturnAction ChooseAction4()
+    #region Moveset4
+    public static ReturnAction Moveset4()
     {
         var returnAction = new ReturnAction();
         switch (random.Next(1, 11))
@@ -173,4 +186,7 @@ public static class EnemyMoveset
         }
         return returnAction;
     }
+    #endregion
+
+    #endregion
 }
