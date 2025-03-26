@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/BattleEntities.dll": {}
         }
+      },
+      "MessageLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MessageLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MessageLibrary.dll": {}
+        }
       }
     }
   },
@@ -19,11 +29,17 @@
       "type": "project",
       "path": "../BattleEntities/BattleEntities.csproj",
       "msbuildProject": "../BattleEntities/BattleEntities.csproj"
+    },
+    "MessageLibrary/1.0.0": {
+      "type": "project",
+      "path": "../MessageLibrary/MessageLibrary.csproj",
+      "msbuildProject": "../MessageLibrary/MessageLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "BattleEntities >= 1.0.0"
+      "BattleEntities >= 1.0.0",
+      "MessageLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -60,6 +76,9 @@
           "projectReferences": {
             "C:\\Users\\arthu_dzh116v\\source\\repos\\JogoBatalha\\BattleEntities\\BattleEntities.csproj": {
               "projectPath": "C:\\Users\\arthu_dzh116v\\source\\repos\\JogoBatalha\\BattleEntities\\BattleEntities.csproj"
+            },
+            "C:\\Users\\arthu_dzh116v\\source\\repos\\JogoBatalha\\MessageLibrary\\MessageLibrary.csproj": {
+              "projectPath": "C:\\Users\\arthu_dzh116v\\source\\repos\\JogoBatalha\\MessageLibrary\\MessageLibrary.csproj"
             }
           }
         }

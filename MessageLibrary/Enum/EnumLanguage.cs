@@ -2,7 +2,7 @@
 
 public enum EnumLanguage
 {
-    Portuguese,
+    Portuguese = 1,
     English,
     Turkish
 }
