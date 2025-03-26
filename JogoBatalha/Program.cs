@@ -49,10 +49,6 @@ PrintGameName();
 
 Console.WriteLine("Você vai enfrentar um oponente no seu nível de força!\n");
 Console.WriteLine("Você pode se defender, se curar e fazer um ataque leve, médio ou pesado (uma ação por turno)");
-//Console.WriteLine("Qual será sua escolha?\n\n");
-
-//foreach (EnumAction action in Enum.GetValues(typeof(EnumAction)))
-//    Console.WriteLine($"{(int)action} \t {action}");
 
 string choosedAction;
 bool wrongChoosedAction = true;
@@ -66,8 +62,6 @@ while (wrongChoosedAction)
     while (battleContinues)
     {
         Chooses(player, enemy);
-        //Console.WriteLine($"\nVida do(a) {player.Name}: {player.Hp}");
-        //Console.WriteLine($"Vida do inimigo: {enemy.Hp}\n");
         choosedAction = Console.ReadLine();
 
         if (int.TryParse(choosedAction, out resultAction) == false)
