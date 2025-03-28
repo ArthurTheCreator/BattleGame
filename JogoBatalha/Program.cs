@@ -6,12 +6,20 @@ using MessageLibrary.Message.GetMessage;
 
 Enemy enemy = new Enemy();
 
-var lingua = int.Parse(Console.ReadLine());
-var value = (EnumLanguage)Enum.ToObject(typeof(EnumLanguage), lingua);
-GetMessage.EnumLanguage = value;
+Console.WriteLine("|Escolha o Idioma | Choose the language | Dili seçin |\n" +
+                  "|----------------------------------------------------|\n" +
+    "|\t\t     1 - Português\t\t     |\n" +
+    "|\t\t     2 - English\t\t     |\n" +
+    "|\t\t     3 - Türkçe\t\t\t     |" + "\n" +
+    "|====================================================|");
+
+var language = int.Parse(Console.ReadLine());
+SetLanguege(language);
+
 for (var i = 0; i < 10; i++)
 {
-    Console.WriteLine(GetMessage.GetPlayerSuccessTakePotionMessage());
+    Console.WriteLine(GetPlayerMessage.GetPlayerSuccessTakePotionMessage());
+    Console.WriteLine(GetEnemyMessage.GetEnemySuccessTakePotionMessage());
 }
 
 PrintGameName();
@@ -118,4 +126,11 @@ static void Chooses(Player player, Enemy enemy)
     Console.WriteLine("5-\t Usar poção de Cura");
     Console.WriteLine($"\nVida do(a) {player.Name}: {player.Hp}");
     Console.WriteLine($"Vida do inimigo: {enemy.Hp}\n");
+}
+
+static void SetLanguege(int language)
+{
+    var value = (EnumLanguage)Enum.ToObject(typeof(EnumLanguage), language);
+    GetPlayerMessage.EnumLanguage = value;
+    GetEnemyMessage.EnumLanguage = value;
 }

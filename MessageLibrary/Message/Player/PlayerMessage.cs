@@ -1,6 +1,4 @@
-﻿using MessageLibrary.Enum;
-
-namespace MessageLibrary.Message.Player;
+﻿namespace MessageLibrary.Message.Player;
 
 public static class PlayerMessage
 {
@@ -119,5 +117,21 @@ public static class PlayerMessage
     };
     #endregion
 
+    #endregion
+
+    #region AttackMessage
+
+    #region LightAttack
+    #endregion
+
+    #region MediumAttack
+    #endregion
+
+    #region HeavyAttack
+    #endregion
+
+    #endregion
+
+    #region Defense
     #endregion
 }
