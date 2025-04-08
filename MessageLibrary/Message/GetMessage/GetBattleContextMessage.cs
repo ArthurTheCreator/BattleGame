@@ -25,6 +25,15 @@ namespace MessageLibrary.Message.GetMessage
             }
         }
 
+        public static string GetBattleContextStartGameMessage
+        {
+            get
+            {
+                var messages = BattleContext.StartGameMessage[Language];
+                return messages[GetNext(messages.Count)];
+            }
+        }
+
         public static string GetBattleContextWrongAction
         {
             get
@@ -39,6 +48,22 @@ namespace MessageLibrary.Message.GetMessage
             get
             {
                 return BattleContext.MenuChoices[Language];
+            }
+        }
+
+        public static string GetBattleContextPressAnyKeyMessage
+        {
+            get
+            {
+                return BattleContext.PressAnyKeyMessage[Language];
+            }
+        }
+
+        public static string GetBattleContextLoadingMessage
+        {
+            get
+            {
+                return BattleContext.LoadingMessage[Language];
             }
         }
 

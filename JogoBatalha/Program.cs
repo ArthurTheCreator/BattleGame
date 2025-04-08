@@ -28,10 +28,9 @@ Player player = new Player(name);
 Console.Clear();
 
 PrintGameName(usingLanguage);
-Console.WriteLine("Belo nome, jogadô!");
-Console.WriteLine("Vamos começar?\n");
+Console.WriteLine(GetBattleContextMessage.GetBattleContextStartGameMessage);
 
-Console.WriteLine("Aperte qualquer tecla para continuar.");
+Console.WriteLine(GetBattleContextMessage.GetBattleContextPressAnyKeyMessage);
 Console.ReadKey();
 
 int duration = 3000;
@@ -46,7 +45,7 @@ while (DateTime.Now < endTime)
         Console.Clear();
         PrintGameName(usingLanguage);
         string dots = new string('.', i + 1);
-        Console.WriteLine("Carregando" + dots);
+        Console.WriteLine(GetBattleContextMessage.GetBattleContextLoadingMessage + dots);
         Thread.Sleep(interval);
     }
 }
@@ -93,7 +92,7 @@ while (wrongChoosedAction)
         Console.Clear();
         battleContinues = BattleRound.RoundFight(player, enemy, battleResultPlayer, battleResultEnemy);
 
-        Console.WriteLine("Aperte qualquer tecla para continuar...\n");
+        Console.WriteLine($"{GetBattleContextMessage.GetBattleContextPressAnyKeyMessage}\n");
         Console.ReadKey();
     }
 }
