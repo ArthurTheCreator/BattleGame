@@ -12,29 +12,15 @@ public static class EnemyMoveset
     #region ChoiceOfActionBasedOnCurrentLife
     public static ReturnAction EnemyAction(Enemy enemy)
     {
-        var returnAction = new ReturnAction();
-        switch (enemy)
+        return enemy switch
         {
-            case Enemy e when e.Hp > 80:
-                returnAction = Moveset1();
-                break;
-            case Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() > 0:
-                returnAction = Moveset2();
-                break;
-            case Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() == 0:
-                returnAction = Moveset1();
-                break;
-            case Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() > 0:
-                returnAction = Moveset3();
-                break;
-            case Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() == 0:
-                returnAction = Moveset4();
-                break;
-            default:
-                returnAction.Attack(HeavyAttack.GetAttack(), EnumAction.HeavyAttack);
-                break;
-        }
-        return returnAction;
+            Enemy e when e.Hp > 80 => Moveset1(),
+            Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() > 0 => Moveset2(),
+            Enemy e when e.Hp <= 80 && e.Hp > 40 && e.HealthPotionStock.Count() == 0 => Moveset1(),
+            Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() > 0 => Moveset3(),
+            Enemy e when e.Hp <= 40 && e.Hp > 10 && e.HealthPotionStock.Count() == 0 => Moveset4(),
+            _ => new ReturnAction().Attack(HeavyAttack.GetAttack(), EnumAction.HeavyAttack),
+        };
     }
     #endregion
 
