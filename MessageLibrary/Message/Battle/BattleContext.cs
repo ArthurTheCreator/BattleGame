@@ -29,6 +29,41 @@ namespace MessageLibrary.Message.Battle
             } }
         };
 
+        public static Dictionary<EnumLanguage, List<string>> StartGameMessage = new Dictionary<EnumLanguage, List<string>>
+        {
+            {
+                EnumLanguage.Portuguese, new List<string>
+                {
+                    "Belo nome, jogadô! Vamos começar?\n",
+                    "Nome digno de um herói! Preparado para o desafio?\n",
+                    "Hehe... gostei do nome. Bora pra batalha?\n",
+                    "Nome poderoso! Que comecem os combates!\n",
+                    "Pronto para escrever sua lenda, jogadô?\n"
+                }
+            },
+            {
+                EnumLanguage.English, new List<string>
+                {
+                    "Nice name, adventurer! Shall we begin?\n",
+                    "A name worthy of a hero! Ready for the challenge?\n",
+                    "Heh... I like your name. Let’s head to battle!\n",
+                    "Powerful name! Let the fight begin!\n",
+                    "Are you ready to write your legend, adventurer?\n"
+                }
+            },
+            {
+                EnumLanguage.Turkish, new List<string>
+                {
+                    "Güzel isim, maceraperest! Başlayalım mı?\n",
+                    "Kahramana yakışır bir isim! Mücadeleye hazır mısın?\n",
+                    "Hehe... ismi beğendim. Savaşa gidelim mi?\n",
+                    "Güçlü bir isim! Savaş başlasın!\n",
+                    "Efsaneni yazmaya hazır mısın, maceraperest?\n"
+                }
+            }
+        };
+
+
         public static Dictionary<EnumLanguage, List<string>> PlayerChoose = new Dictionary<EnumLanguage, List<string>>
         {
             { EnumLanguage.Portuguese, new List<string>{
@@ -78,6 +113,21 @@ namespace MessageLibrary.Message.Battle
                 "Geçerli bir seçenek gir lütfen!"
             } }
         };
+
+        public static Dictionary<EnumLanguage, string> PressAnyKeyMessage = new Dictionary<EnumLanguage, string>
+        {
+            { EnumLanguage.Portuguese, "Aperte qualquer tecla para continuar." },
+            { EnumLanguage.English, "Press any key to continue." },
+            { EnumLanguage.Turkish, "Devam etmek için herhangi bir tuşa bas." }
+        };
+
+        public static Dictionary<EnumLanguage, string> LoadingMessage = new Dictionary<EnumLanguage, string>
+        {
+            { EnumLanguage.Portuguese, "Carregando" },
+            { EnumLanguage.English, "Loading" },
+            { EnumLanguage.Turkish, "Yükleniyor" }
+        };
+
 
         public static Dictionary<EnumLanguage, string> MenuChoices = new Dictionary<EnumLanguage, string>
         {
