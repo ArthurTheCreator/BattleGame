@@ -66,13 +66,10 @@ public static class GetPlayerMessage
     #region Light
 
     #region Success
-    public static string GetPlayerSuccessLightAttackMessage
+    public static string GetPlayerSuccessLightAttackMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListSuccessLightAttackMessage[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+        var messages = PlayerMessage.ListSuccessLightAttackMessage[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
 
@@ -88,13 +85,12 @@ public static class GetPlayerMessage
     #endregion
 
     #region EnemyDefense
-    public static string GetPlayerEnemyDefenseLightAttackMessage
+    public static string GetPlayerEnemyDefenseLightAttackMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListEnemyDefenseLightMessages[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+
+        var messages = PlayerMessage.ListEnemyDefenseLightMessages[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
+
     }
     #endregion
 
@@ -102,13 +98,10 @@ public static class GetPlayerMessage
 
     #region Medium
     #region Success
-    public static string GetPlayerSuccessMediumAttackMessage
+    public static string GetPlayerSuccessMediumAttackMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListSuccessMediumAttackMessage[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+        var messages = PlayerMessage.ListSuccessMediumAttackMessage[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
 
@@ -124,26 +117,20 @@ public static class GetPlayerMessage
     #endregion
 
     #region EnemyDefense
-    public static string GetPlayerEnemyDefenseMediumAttackMessage
+    public static string GetPlayerEnemyDefenseMediumAttackMessage(int damage)
     {
-        get
-        {
             var messages = PlayerMessage.ListEnemyDefenseMediumMessages[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+            return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
     #endregion
 
     #region Heavy
     #region Success
-    public static string GetPlayerSuccessHeavyAttackMessage
+    public static string GetPlayerSuccessHeavyAttackMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListSuccessHeavyAttackMessage[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+        var messages = PlayerMessage.ListSuccessHeavyAttackMessage[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
 
@@ -159,13 +146,10 @@ public static class GetPlayerMessage
     #endregion
 
     #region EnemyDefense
-    public static string GetPlayerEnemyDefenseHeavyAttackMessage
+    public static string GetPlayerEnemyDefenseHeavyAttackMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListEnemyDefenseHeavyMessages[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+        var messages = PlayerMessage.ListEnemyDefenseHeavyMessages[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
     #endregion
@@ -200,7 +184,6 @@ public static class GetPlayerMessage
 
     private static int GetNext(int length)
     {
-        Random random = new Random();
         return random.Next(length);
     }
 }
