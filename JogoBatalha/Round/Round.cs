@@ -2,6 +2,7 @@
 using BattleEntities.Actions.Attacks;
 using BattleEntities.Characters;
 using BattleEntities.EnumActions;
+using MessageLibrary.Message.GetMessage;
 
 namespace JogoBatalha.Round;
 
@@ -41,7 +42,7 @@ public static class Round
                     returnAction.Cure();
                     return returnAction;
                 default:
-                    Console.WriteLine("Por favor, digite corretamente!\n");
+                    Console.WriteLine(GetBattleContextMessage.GetBattleContextWrongAction);
                     throw new Exception();
             }
         }
