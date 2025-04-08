@@ -140,4 +140,67 @@ public static class EnemyMessage
     #endregion
 
     #endregion
+
+    public static Dictionary<EnumLanguage, List<string>> EnemyDefendedButPlayerDidNotAttackMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "O inimigo assume postura defensiva… contra o nada. Você não atacou!",
+                "Ele se protege, mas seu golpe nunca veio. Defesa desperdiçada!",
+                "O adversário ergue a guarda por precaução — um ataque que nunca aconteceu.",
+                "Com olhos atentos, o inimigo defende… o vazio.",
+                "Ele se esconde atrás da defesa, mas você estava apenas observando."
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "The enemy braces for an attack… but you didn't strike!",
+                "They shield themselves, but your blow never came. A wasted defense!",
+                "The opponent raises their guard — for a threat that never arrived.",
+                "Alert and defensive, the enemy prepares… for nothing.",
+                "They hide behind their defense, but you were just watching."
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşman savunma pozisyonu alıyor… ama sen saldırmadın!",
+                "Kendini koruyor ama saldırın hiç gelmedi. Boşa harcanan bir savunma!",
+                "Rakip gardını kaldırıyor — ama tehdit hiç ortaya çıkmadı.",
+                "Dikkatli ve savunmada… ama ortada saldırı yok.",
+                "Savunmanın arkasına saklanıyor, ama sen sadece izliyordun."
+            }
+        }
+    };
+
+    public static Dictionary<EnumLanguage, List<string>> BothDefendedMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Você e o inimigo se encaram em silêncio, ambos na defensiva.",
+                "Dois guerreiros cautelosos, nenhum se arrisca a atacar.",
+                "O campo de batalha fica em suspense — ninguém ousa atacar.",
+                "Você levanta sua guarda, assim como o inimigo. Esperando…",
+                "Ambos protegem suas posições. Um impasse silencioso."
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "You and the enemy stare each other down, both on the defense.",
+                "Two cautious warriors — neither dares to strike.",
+                "The battlefield is quiet, tense. No one moves to attack.",
+                "You raise your guard, and so does the enemy. Waiting...",
+                "Both of you defend, holding your ground. A silent standoff."
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Sen ve düşman birbirinize bakıyorsunuz, ikiniz de savunmada.",
+                "İki temkinli savaşçı — hiçbiri saldırmaya cesaret edemiyor.",
+                "Savaş alanı sessiz ve gergin. Kimse saldırmıyor.",
+                "Sen gardını kaldırıyorsun, düşman da öyle. Bekleyiş başlıyor...",
+                "İkiniz de pozisyonunuzu koruyorsunuz. Sessiz bir çıkmaz."
+            }
+        }
+    };
+
 }
