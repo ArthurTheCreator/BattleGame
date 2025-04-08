@@ -119,6 +119,38 @@ public static class PlayerMessage
 
     #region AttackMessage
 
+    public static Dictionary<EnumLanguage, List<string>> PlayerMissedButEnemyDefendedMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Você errou o ataque, mas o inimigo estava na defesa. Sorte que não era necessário acertar!",
+                "O inimigo se defende de um ataque que nem chegou. Sorte sua, não foi exposto!",
+                "Você não acerta o golpe, mas o inimigo estava ocupado se defendendo. Que sorte!",
+                "Ataque errado, mas o inimigo desperdiçou a defesa. Melhor pra você!",
+                "O inimigo bloqueou o vento — sorte sua, ficou tudo elas por elas!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "You missed the attack, but the enemy was guarding anyway. Lucky you!",
+                "The enemy defends against nothing — your miss goes unnoticed. That's luck!",
+                "Your attack fails, but the enemy was too busy defending. What luck!",
+                "You didn’t land the blow, but the enemy wasted a defense. Fortune favors you!",
+                "A failed strike, yet the enemy blocked the air. You got lucky this time!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Saldırın boşa gitti ama düşman zaten savunmadaydı. Şans senden yana!",
+                "Düşman boşa savunma yaptı — senin saldırın isabet etmedi bile. Ne şans!",
+                "Saldırı başarısız oldu ama düşman savunma yapıyordu. Şanslısın!",
+                "Düşman boşluğu savundu. Senin için iyi oldu!",
+                "Vuruş olmadı ama düşman gardını boşuna kaldırdı. Bu sefer şans seninleydi!"
+            }
+        }
+    };
+
+
     #region LightAttack
 
     #region Success
@@ -476,6 +508,132 @@ public static class PlayerMessage
     #endregion
 
     #endregion
+
+    public static Dictionary<EnumLanguage, List<string>> VictoryMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Você derrotou o inimigo!",
+                "O inimigo caiu diante da sua força!",
+                "Com um último golpe, o inimigo é vencido!",
+                "Vitória! O inimigo não se levanta mais.",
+                "O combate termina — o inimigo foi derrotado!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "You have defeated the enemy!",
+                "The enemy falls before your strength!",
+                "With a final strike, the enemy is vanquished!",
+                "Victory! The enemy shall rise no more.",
+                "The battle ends — the enemy is defeated!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşmanı yendin!",
+                "Düşman gücünün karşısında yere serildi!",
+                "Son darbenle düşman yok oldu!",
+                "Zafer! Düşman bir daha kalkamayacak.",
+                "Savaş bitti — düşman mağlup edildi!"
+            }
+        }
+    };
+
+    public static Dictionary<EnumLanguage, List<string>> VictoryTitleMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Vitória!",
+                "Conquistado!",
+                "Triunfo!",
+                "Missão cumprida!",
+                "Você venceu!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "Victory!",
+                "You won!",
+                "Triumph!",
+                "Success!",
+                "Mission complete!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Zafer!",
+                "Kazandın!",
+                "Başarı!",
+                "Görev tamamlandı!",
+                "Triumf!"
+            }
+        }
+    };
+
+    public static Dictionary<EnumLanguage, List<string>> DefeatMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "O inimigo te derrotou!",
+                "Você caiu em combate... o inimigo venceu.",
+                "Derrotado! O inimigo prevaleceu desta vez.",
+                "Você não resistiu — o inimigo saiu vitorioso.",
+                "Fim de jogo. O inimigo foi mais forte."
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "The enemy has defeated you!",
+                "You fell in battle... the enemy has won.",
+                "Defeated! The enemy prevailed this time.",
+                "You couldn’t hold on — the enemy is victorious.",
+                "Game over. The enemy proved stronger."
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşman seni yendi!",
+                "Savaşta yenildin... düşman galip geldi.",
+                "Mağlubiyet! Bu sefer düşman kazandı.",
+                "Dayanamadın — düşman zaferle çıktı.",
+                "Oyun bitti. Düşman daha güçlüydü."
+            }
+        }
+    };
+
+    public static Dictionary<EnumLanguage, List<string>> DefeatTitleMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Derrota...",
+                "Você perdeu.",
+                "Fim...",
+                "Fracasso!",
+                "Tudo acabou..."
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "Defeat...",
+                "You lost.",
+                "The end...",
+                "Failure!",
+                "All is lost..."
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Mağlubiyet...",
+                "Kaybettin.",
+                "Son...",
+                "Başarısızlık!",
+                "Her şey bitti..."
+            }
+        }
+    };
+
+
 
     #endregion
 }

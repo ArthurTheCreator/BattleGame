@@ -63,6 +63,15 @@ public static class GetPlayerMessage
 
     #region Attack
 
+    public static string GetPlayerMissedButEnemyDefendedMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.PlayerMissedButEnemyDefendedMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
+
     #region Light
 
     #region Success
@@ -181,6 +190,24 @@ public static class GetPlayerMessage
     #endregion
 
     #endregion
+
+    public static string GetPlayerVictoryMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.VictoryMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
+
+    public static string GetPlayerVictoryTitleMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.VictoryTitleMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
 
     private static int GetNext(int length)
     {

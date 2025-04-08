@@ -203,4 +203,36 @@ public static class EnemyMessage
         }
     };
 
+    public static Dictionary<EnumLanguage, List<string>> EnemyUsedDefenseMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "O inimigo utilizou defesa!",
+                "O inimigo ergue a guarda para se proteger!",
+                "Com movimentos ágeis, o inimigo entra em posição defensiva.",
+                "O inimigo recua levemente e se prepara para defender.",
+                "O inimigo se protege, antecipando o próximo golpe!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "The enemy used defense!",
+                "The enemy raises the guard to protect!",
+                "With swift movement, the enemy assumes a defensive stance.",
+                "The enemy steps back slightly and prepares to defend.",
+                "The enemy braces for the next strike, shielding up!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşman savunma yaptı!",
+                "Düşman kendini korumak için gardını kaldırıyor!",
+                "Hızlı bir hareketle düşman savunma pozisyonuna geçiyor.",
+                "Düşman hafifçe geri çekiliyor ve savunmaya hazırlanıyor.",
+                "Düşman bir sonraki saldırıya karşı savunmaya geçiyor!"
+            }
+        }
+    };
+
+
 }

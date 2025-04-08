@@ -1,6 +1,7 @@
 ﻿using BattleEntities.Actions;
 using BattleEntities.Characters;
 using BattleEntities.EnumActions;
+using MessageLibrary.Message.GetMessage;
 
 namespace JogoBatalha.Round
 {
@@ -18,24 +19,33 @@ namespace JogoBatalha.Round
                     Console.WriteLine("");
                 }
                 else
-                    Console.WriteLine("Você não pode se curar ainda, sua vida precisa estar abaixo de 80!");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerFailureTakePotionHpMessage);
             }
             if (battleResultPlayer.IsAttack && battleResultEnemy.IsDefense)
             {
                 var damage = battleResultPlayer.AttackDamage / 2;
                 if (damage > 0)
                 {
-                    Console.WriteLine("O inimigo utilizou defesa!");
-                    Console.WriteLine($"{player.Name} causou {damage} de dano!");
+                    Console.WriteLine(GetEnemyMessage.GetEnemyUsingDefense);
+
+                    if (battleResultPlayer.AttackType == EnumAction.LightAttack)
+                        Console.WriteLine(GetPlayerMessage.GetPlayerEnemyDefenseLightAttackMessage(damage));
+
+                    else if (battleResultPlayer.AttackType == EnumAction.MediumAttack)
+                        Console.WriteLine(GetPlayerMessage.GetPlayerEnemyDefenseMediumAttackMessage(damage));
+
+                    else if (battleResultPlayer.AttackType == EnumAction.HeavyAttack)
+                        Console.WriteLine(GetPlayerMessage.GetPlayerEnemyDefenseHeavyAttackMessage(damage));
+
                     enemy.Hp -= damage;
                 }
                 else
-                    Console.WriteLine("Você errou o ataque, porém seu inimigo defendeu, que sorte!");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerMissedButEnemyDefendedMessages);
 
                 if (enemy.Hp <= 0)
                 {
-                    Console.WriteLine("Você derrotou o seu inimigo!");
-                    Console.WriteLine("Vitória!");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerVictoryMessages);
+                    Console.WriteLine(GetPlayerMessage.GetPlayerVictoryTitleMessages);
                     battleContinues = false;
                 }
             }
@@ -75,8 +85,8 @@ namespace JogoBatalha.Round
 
                 if (enemy.Hp <= 0)
                 {
-                    Console.WriteLine("Você derrotou o seu inimigo!");
-                    Console.WriteLine("Vitória!");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerVictoryMessages);
+                    Console.WriteLine(GetPlayerMessage.GetPlayerVictoryTitleMessages);
                     battleContinues = false;
                 }
             }

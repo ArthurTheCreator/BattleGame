@@ -1,4 +1,6 @@
 ﻿using MessageLibrary.Enum;
+using MessageLibrary.Message.Enemy;
+using MessageLibrary.Message.Player;
 
 namespace MessageLibrary.Message.GetMessage;
 
@@ -10,10 +12,17 @@ public static class GetEnemyMessage
 
     public static EnumLanguage EnumLanguage { get; set; }
 
-
-
-    private static int GetNext(this List<string> listMessage)
+    public static string GetEnemyUsingDefense
     {
-        return random.Next(listMessage.Count);
+        get
+        {
+            var messages = EnemyMessage.EnemyUsedDefenseMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
+
+    private static int GetNext(int length)
+    {
+        return random.Next(length);
     }
 }

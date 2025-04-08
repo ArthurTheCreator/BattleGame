@@ -12,10 +12,32 @@ Console.WriteLine("|Escolha o Idioma | Choose the language | Dili seçin |\n" +
     "|\t\t     1 - Português\t\t     |\n" +
     "|\t\t     2 - English\t\t     |\n" +
     "|\t\t     3 - Türkçe\t\t\t     |" + "\n" +
-    "|====================================================|");
+    "|====================================================|\n");
 
-var language = int.Parse(Console.ReadLine());
+bool wrongChoose = true;
+var language = 0;
+while (wrongChoose)
+{
+    language = int.Parse(Console.ReadLine());
+    switch (language)
+    {
+        case 1:
+            wrongChoose = false;
+            break;
+        case 2:
+            wrongChoose = false;
+            break;
+        case 3:
+            wrongChoose = false;
+            break;
+        default:
+            Console.WriteLine("Por favor, digite uma opção válida! | Please enter a valid option! | Geçerli bir seçenek gir lütfen!");
+            break;
+    }
+}
 EnumLanguage usingLanguage = SetLanguage(language);
+
+Console.Clear();
 
 PrintGameName(usingLanguage);
 
