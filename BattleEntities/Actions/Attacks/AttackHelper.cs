@@ -6,12 +6,12 @@ public static class AttackHelper
 
     public static int GetDamage((int, int) DamageRange)
     {
-        return random.Next(DamageRange.Item1, DamageRange.Item2+1);
+        return random.Next(DamageRange.Item1, DamageRange.Item2 + 1);
     }
 
     public static bool HitResult(int HitPossibilite)
     {
-        return random.Next(11) <= HitPossibilite/10;
+        return random.Next(11) <= HitPossibilite / 10;
     }
 
     public static int GetAttack((int, int) DamageRange, int HitPossibilite)

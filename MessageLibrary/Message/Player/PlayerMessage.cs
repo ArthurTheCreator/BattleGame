@@ -1,17 +1,41 @@
-﻿namespace MessageLibrary.Message.Player;
+﻿using MessageLibrary.Enum;
+
+namespace MessageLibrary.Message.Player;
 
 public static class PlayerMessage
 {
     #region PotionMessage
 
     #region Portuguese
+
+    public static Dictionary<EnumLanguage, List<string>> ListSuccessTakePotionMessage = new Dictionary<EnumLanguage, List<string>>
+    {
+        { EnumLanguage.Portuguese, new List<string>{
+            "Você bebe a poção e sente uma energia revitalizante! +20 de vida.",
+            "Você engole a poção dourada - um calor revigorante se espalha pelo corpo! +20 HP",
+            "O líquido borbulhante cura suas feridas instantaneamente. Vida +20!",
+            "*Glup glup* A poção restaura 20 pontos de vida!",
+            "Você sente ossos se recompondo e músculos se regenerando ao beber o frasco.",
+        } },
+        { EnumLanguage.English, new List<string>{
+            "You drink the potion and feel revitalizing energy! +20 health.",
+            "You swallow the golden potion - a revigorating warmth spreads through your body! +20 HP",
+            "The bubbling liquid instantly heals your wounds. Health +20!",
+            "*Gulp gulp* The potion restores 20 health points!",
+            "You feel bones mending and muscles regenerating as you drink the flask."
+        } },
+        { EnumLanguage.Turkish, new List<string>{
+            "İksiri içiyorsunuz ve canlandırıcı bir enerji hissediyorsunuz! +20 can.",
+            "Altın iksiri yudumluyorsunuz - vücudunuzda canlandırıcı bir sıcaklık yayılıyor! +20 HP",
+            "Fokurdayan sıvı yaralarınızı anında iyileştiriyor. Can +20!",
+            "*Gulp gulp* İksir 20 can puanı iyileştiriyor!",
+            "İksiri içerken kemiklerinizin kaynadığını ve kaslarınızın yenilendiğini hissediyorsunuz."
+        } }
+    };
+
+
     public static List<string> ListSuccessTakePotionMessagePortuguese { get; } = new List<string>
     {
-        "Você bebe a poção e sente uma energia revitalizante! +20 de vida.",
-        "Você engole a poção dourada - um calor revigorante se espalha pelo corpo! +20 HP",
-        "O líquido borbulhante cura suas feridas instantaneamente. Vida +20!",
-        "*Glup glup* A poção restaura 20 pontos de vida!",
-        "Você sente ossos se recompondo e músculos se regenerando ao beber o frasco.",
     };
 
     public static List<string> ListFailureTakePotionStockMessagePortuguese { get; } = new List<string>

@@ -14,40 +14,46 @@ public static class GetPlayerMessage
     public static string? PlayerName { get; set; }
 
     #region Potion
-    public static string GetPlayerSuccessTakePotionMessage()
+    public static string GetPlayerSuccessTakePotionMessage
     {
-        if (EnumLanguage == EnumLanguage.Portuguese)
-            return PlayerMessage.ListSuccessTakePotionMessagePortuguese[random.Next(5)];
-        else if (EnumLanguage == EnumLanguage.English)
-            return PlayerMessage.ListSuccessTakePotionMessageEnglish[random.Next(5)];
-        else return PlayerMessage.ListSuccessTakePotionMessageTurkish[random.Next(5)];
-    }    
-
-    public static string GetPlayerFailureTakePotionStockMessage()
-    {
-        if (EnumLanguage == EnumLanguage.Portuguese)
-            return PlayerMessage.ListFailureTakePotionStockMessagePortuguese[random.Next(5)];
-        else if (EnumLanguage == EnumLanguage.English)
-            return PlayerMessage.ListFailureTakePotionStockMessageEnglish[random.Next(5)];
-        else return PlayerMessage.ListFailureTakePotionStockMessageTurkish[random.Next(5)];
+        get
+        {
+            var messages = PlayerMessage.ListSuccessTakePotionMessage[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
     }
 
-    public static string GetPlayerFailureTakePotionHPMessage()
-    {
-        if (EnumLanguage == EnumLanguage.Portuguese)
-            return PlayerMessage.ListFailureTakePotionHPMessagePortuguese[random.Next(5)];
-        else if (EnumLanguage == EnumLanguage.English)
-            return PlayerMessage.ListFailureTakePotionHPMessageEnglish[random.Next(5)];
-        else return PlayerMessage.ListFailureTakePotionHPMessageTurkish[random.Next(5)];
-    }
+    //public static string GetPlayerFailureTakePotionStockMessage()
+    //{
+    //    if (EnumLanguage == EnumLanguage.Portuguese)
+    //        return PlayerMessage.ListFailureTakePotionStockMessagePortuguese[GetNext()];
+    //    else if (EnumLanguage == EnumLanguage.English)
+    //        return PlayerMessage.ListFailureTakePotionStockMessageEnglish[GetNext()];
+    //    else return PlayerMessage.ListFailureTakePotionStockMessageTurkish[GetNext()];
+    //}
 
-    public static string GetFailureTakePotionStockAndHPMessage()
-    {
-        if (EnumLanguage == EnumLanguage.Portuguese)
-            return PlayerMessage.ListFailureTakePotionStockAndHPMessagePortuguese[random.Next(5)];
-        else if (EnumLanguage == EnumLanguage.English)
-            return PlayerMessage.ListFailureTakePotionStockAndHPMessageEnglish[random.Next(5)];
-        else return PlayerMessage.ListFailureTakePotionStockAndHPMessageTurkish[random.Next(5)];
-    }
+    //public static string GetPlayerFailureTakePotionHPMessage()
+    //{
+    //    if (EnumLanguage == EnumLanguage.Portuguese)
+    //        return PlayerMessage.ListFailureTakePotionHPMessagePortuguese[GetNext()];
+    //    else if (EnumLanguage == EnumLanguage.English)
+    //        return PlayerMessage.ListFailureTakePotionHPMessageEnglish[GetNext()];
+    //    else return PlayerMessage.ListFailureTakePotionHPMessageTurkish[GetNext()];
+    //}
+
+    //public static string GetFailureTakePotionStockAndHPMessage()
+    //{
+    //    if (EnumLanguage == EnumLanguage.Portuguese)
+    //        return PlayerMessage.ListFailureTakePotionStockAndHPMessagePortuguese[GetNext()];
+    //    else if (EnumLanguage == EnumLanguage.English)
+    //        return PlayerMessage.ListFailureTakePotionStockAndHPMessageEnglish[GetNext()];
+    //    else return PlayerMessage.ListFailureTakePotionStockAndHPMessageTurkish[GetNext()];
+    //}
     #endregion
+
+    private static int GetNext(int length)
+    {
+        Random random = new Random();
+        return random.Next(length);
+    }
 }

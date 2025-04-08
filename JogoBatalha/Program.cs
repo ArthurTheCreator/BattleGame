@@ -16,10 +16,10 @@ Console.WriteLine("|Escolha o Idioma | Choose the language | Dili seçin |\n" +
 var language = int.Parse(Console.ReadLine());
 SetLanguege(language);
 
-for (var i = 0; i < 10; i++)
+for (var i = 0; i < 3; i++)
 {
-    Console.WriteLine(GetPlayerMessage.GetPlayerSuccessTakePotionMessage());
-    Console.WriteLine(GetEnemyMessage.GetEnemySuccessTakePotionMessage());
+    Console.WriteLine(GetPlayerMessage.GetPlayerSuccessTakePotionMessage);
+    //Console.WriteLine(GetEnemyMessage.GetEnemySuccessTakePotionMessage());
 }
 
 PrintGameName();

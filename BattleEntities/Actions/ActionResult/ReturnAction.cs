@@ -15,12 +15,13 @@ public class ReturnAction
     public bool IsCure { get; set; }
     public int CureValue { get; set; }
 
-    public void Attack(int Damage, EnumAction? enumAction)
+    public ReturnAction Attack(int Damage, EnumAction? enumAction)
     {
         IsAttack = true;
         AttackDamage = Damage;
         Miss = Damage == 0;
         AttackType = enumAction;
+        return this;
     }
 
     public void Defense()
