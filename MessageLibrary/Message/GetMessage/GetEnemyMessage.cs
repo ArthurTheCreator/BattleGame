@@ -81,6 +81,14 @@ public static class GetEnemyMessage
         }
     }
 
+    public static string EnemyUsedDefenseUselessly
+    {
+        get
+        {
+            var messages = EnemyMessage.EnemyUsedDefenseUselesslyMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
     private static int GetNext(int length)
     {
         return random.Next(length);

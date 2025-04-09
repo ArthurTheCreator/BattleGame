@@ -298,5 +298,37 @@ public static class EnemyMessage
         }
     };
 
+    public static Dictionary<EnumLanguage, List<string>> EnemyUsedDefenseUselesslyMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "O inimigo se protege de um perigo que nunca veio.",
+                "Ele ergue a guarda, mas você estava apenas se curando.",
+                "O adversário assume posição defensiva… sem necessidade.",
+                "Com medo de um ataque, o inimigo desperdiça sua defesa.",
+                "O inimigo se encolhe atrás da defesa, mas não havia ameaça alguma."
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "The enemy shields against a threat that never came.",
+                "They raise their guard, but you were only healing.",
+                "The opponent goes defensive… unnecessarily.",
+                "Afraid of an incoming strike, the enemy wastes their defense.",
+                "The enemy hides behind their guard, but there was no danger."
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşman, hiç gelmeyen bir tehdide karşı savunmaya geçiyor.",
+                "Gardını kaldırıyor ama sen sadece iyileşiyordun.",
+                "Rakip gereksiz yere savunma pozisyonuna geçiyor.",
+                "Yaklaşan bir saldırı korkusuyla savunmasını boşa harcıyor.",
+                "Tehlike olmamasına rağmen düşman gardını alıyor."
+            }
+        }
+    };
+
+
 
 }
