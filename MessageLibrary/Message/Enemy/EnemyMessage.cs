@@ -236,6 +236,8 @@ public static class EnemyMessage
 
     #endregion
 
+    #region Defense
+
     public static Dictionary<EnumLanguage, List<string>> BothDefendedMessages = new()
     {
         { EnumLanguage.Portuguese, new()

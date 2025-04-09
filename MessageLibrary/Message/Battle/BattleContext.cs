@@ -4,6 +4,8 @@ namespace MessageLibrary.Message.Battle
 {
     public class BattleContext
     {
+        #region StartingGame
+
         public static Dictionary<EnumLanguage, List<string>> WelcomeMessage = new Dictionary<EnumLanguage, List<string>>
         {
             { EnumLanguage.Portuguese, new List<string>{
@@ -63,6 +65,9 @@ namespace MessageLibrary.Message.Battle
             }
         };
 
+        #endregion
+
+        #region PlayerActions
 
         public static Dictionary<EnumLanguage, List<string>> PlayerChoose = new Dictionary<EnumLanguage, List<string>>
         {
@@ -113,6 +118,10 @@ namespace MessageLibrary.Message.Battle
                 "Geçerli bir seçenek gir lütfen!"
             } }
         };
+
+        #endregion
+
+        #region InGamePrints
 
         public static Dictionary<EnumLanguage, string> PressAnyKeyMessage = new Dictionary<EnumLanguage, string>
         {
@@ -168,12 +177,12 @@ namespace MessageLibrary.Message.Battle
         Düşmanın canı: {enemyHp}" }
         };
 
-
         public static Dictionary<EnumLanguage, string> ArenaTitle = new Dictionary<EnumLanguage, string>
         {
             { EnumLanguage.Portuguese, "Arena Mortal" },
             { EnumLanguage.English, "Mortal Arena" },
             { EnumLanguage.Turkish, "Ölüm Arenası" }
         };
+        #endregion
     }
 }
