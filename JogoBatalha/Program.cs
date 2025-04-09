@@ -18,7 +18,7 @@ bool wrongChoose = true;
 var language = 0;
 while (wrongChoose)
 {
-    language = int.Parse(Console.ReadLine());
+    int.TryParse(Console.ReadLine(), out language);
     switch (language)
     {
         case 1:
@@ -41,10 +41,11 @@ Console.Clear();
 
 PrintGameName(usingLanguage);
 
-GetBattleContextMessage.Language = usingLanguage;
-
 Console.WriteLine(GetBattleContextMessage.GetBattleContextWelcomeMessage);
 string name = Console.ReadLine();
+
+if (name is null)
+    name = " ";
 
 Player player = new Player(name);
 Console.Clear();
@@ -81,6 +82,7 @@ string choosedAction;
 bool wrongChoosedAction = true;
 int resultAction = 0;
 
+MenuChoices(player, enemy);
 while (wrongChoosedAction)
 {
     ReturnAction battleResultPlayer = new ReturnAction();
@@ -88,18 +90,15 @@ while (wrongChoosedAction)
     bool battleContinues = true;
     while (battleContinues)
     {
-        MenuChoices(player, enemy);
         choosedAction = Console.ReadLine();
 
         if (int.TryParse(choosedAction, out resultAction) == false)
-        {
-            Console.WriteLine(GetBattleContextMessage.GetBattleContextWrongAction);
             battleContinues = false;
-        }
         else
             wrongChoosedAction = false;
 
-        battleResultEnemy = EnemyMoveset.EnemyAction(enemy);
+        if (battleContinues)
+            battleResultEnemy = EnemyMoveset.EnemyAction(enemy);
 
         try
         {
@@ -116,6 +115,9 @@ while (wrongChoosedAction)
 
         Console.WriteLine($"{GetBattleContextMessage.GetBattleContextPressAnyKeyMessage}\n");
         Console.ReadKey();
+
+        if (battleContinues)
+            MenuChoices(player, enemy);
     }
 }
 
@@ -131,7 +133,7 @@ static void PrintGameName(EnumLanguage lang)
 
 static void MenuChoices(Player player, Enemy enemy)
 {
-    Console.WriteLine(GetBattleContextMessage.GetBattleContextMenuChoices);
+    Console.WriteLine(GetBattleContextMessage.GetBattleContextMenuChoices(player.Name, player.Hp, enemy.Hp));
 }
 
 static EnumLanguage SetLanguage(int language)
@@ -139,5 +141,6 @@ static EnumLanguage SetLanguage(int language)
     EnumLanguage value = (EnumLanguage)Enum.ToObject(typeof(EnumLanguage), language);
     GetPlayerMessage.EnumLanguage = value;
     GetEnemyMessage.EnumLanguage = value;
+    GetBattleContextMessage.Language = value;
     return value;
 }

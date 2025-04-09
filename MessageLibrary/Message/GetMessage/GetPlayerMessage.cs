@@ -1,5 +1,6 @@
 ﻿using MessageLibrary.Enum;
 using MessageLibrary.Message.Player;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MessageLibrary.Message.GetMessage;
 
@@ -20,7 +21,7 @@ public static class GetPlayerMessage
     {
         get
         {
-            var messages = PlayerMessage.ListSuccessTakePotionMessage[EnumLanguage];
+            var messages = PlayerMessage.SuccessTakePotionMessages[EnumLanguage];
             return messages[GetNext(messages.Count)];
         }
     }
@@ -31,7 +32,7 @@ public static class GetPlayerMessage
     {
         get
         {
-            var messages = PlayerMessage.ListFailureTakePotionStockMessage[EnumLanguage];
+            var messages = PlayerMessage.FailureTakePotionStockMessages[EnumLanguage];
             return messages[GetNext(messages.Count)];
         }
     }
@@ -42,7 +43,7 @@ public static class GetPlayerMessage
     {
         get
         {
-            var messages = PlayerMessage.ListFailureTakePotionHPMessage[EnumLanguage];
+            var messages = PlayerMessage.FailureTakePotionHPMessages[EnumLanguage];
             return messages[GetNext(messages.Count)];
         }
     }
@@ -53,7 +54,7 @@ public static class GetPlayerMessage
     {
         get
         {
-            var messages = PlayerMessage.ListFailureTakePotionStockAndHPMessage[EnumLanguage];
+            var messages = PlayerMessage.FailureTakePotionStockAndHPMessages[EnumLanguage];
             return messages[GetNext(messages.Count)];
         }
     }
@@ -62,6 +63,15 @@ public static class GetPlayerMessage
     #endregion
 
     #region Attack
+
+    public static string GetPlayerMissedAttackMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.PlayerMissedAttackMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
 
     public static string GetPlayerMissedButEnemyDefendedMessages
     {
@@ -96,10 +106,8 @@ public static class GetPlayerMessage
     #region EnemyDefense
     public static string GetPlayerEnemyDefenseLightAttackMessage(int damage)
     {
-
         var messages = PlayerMessage.ListEnemyDefenseLightMessages[EnumLanguage];
         return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
-
     }
     #endregion
 
@@ -128,8 +136,8 @@ public static class GetPlayerMessage
     #region EnemyDefense
     public static string GetPlayerEnemyDefenseMediumAttackMessage(int damage)
     {
-            var messages = PlayerMessage.ListEnemyDefenseMediumMessages[EnumLanguage];
-            return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
+        var messages = PlayerMessage.ListEnemyDefenseMediumMessages[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{damage}", damage.ToString());
     }
     #endregion
     #endregion
@@ -168,13 +176,10 @@ public static class GetPlayerMessage
     #region Defense
 
     #region Success
-    public static string GetPlayerSuccessDefenseMessage
+    public static string GetPlayerSuccessDefenseMessage(int damage)
     {
-        get
-        {
-            var messages = PlayerMessage.ListSuccessDefenseMessage[EnumLanguage];
-            return messages[GetNext(messages.Count)];
-        }
+        var messages = PlayerMessage.ListSuccessDefenseMessage[EnumLanguage];
+        return messages[GetNext(messages.Count)].Replace("{reducedDamage}", damage.ToString());
     }
     #endregion
 
@@ -190,6 +195,8 @@ public static class GetPlayerMessage
     #endregion
 
     #endregion
+
+    #region ContextBattle
 
     public static string GetPlayerVictoryMessages
     {
@@ -208,6 +215,26 @@ public static class GetPlayerMessage
             return messages[GetNext(messages.Count)];
         }
     }
+
+    public static string GetPlayerDefeatMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.DefeatMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
+
+    public static string GetPlayerDefeatTitleMessages
+    {
+        get
+        {
+            var messages = PlayerMessage.DefeatTitleMessages[EnumLanguage];
+            return messages[GetNext(messages.Count)];
+        }
+    }
+
+    #endregion
 
     private static int GetNext(int length)
     {

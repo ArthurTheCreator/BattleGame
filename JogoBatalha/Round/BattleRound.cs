@@ -13,15 +13,22 @@ namespace JogoBatalha.Round
 
             if (battleResultPlayer.IsCure)
             {
-                if (player.Hp <= 80)
+                if (player.Hp <= 80 && player.HealthPotionStock.Count > 0)
                 {
                     player.Hp += battleResultPlayer.CureValue;
-                    Console.WriteLine("");
+                    player.HealthPotionStock.RemoveAt(player.HealthPotionStock.Count - 1);
+                    Console.WriteLine(GetPlayerMessage.GetPlayerSuccessTakePotionMessage);
                 }
-                else
+                else if (player.Hp > 80 && player.HealthPotionStock.Count == 0)
+                    Console.WriteLine(GetPlayerMessage.GetPlayerFailureTakePotionStockAndHpMessage);
+
+                else if (player.Hp > 80)
                     Console.WriteLine(GetPlayerMessage.GetPlayerFailureTakePotionHpMessage);
+
+                else if (player.HealthPotionStock.Count == 0)
+                    Console.WriteLine(GetPlayerMessage.GetPlayerFailureTakePotionStockMessage);
             }
-            if (battleResultPlayer.IsAttack && battleResultEnemy.IsDefense)
+            else if (battleResultPlayer.IsAttack && battleResultEnemy.IsDefense)
             {
                 var damage = battleResultPlayer.AttackDamage / 2;
                 if (damage > 0)
@@ -49,39 +56,43 @@ namespace JogoBatalha.Round
                     battleContinues = false;
                 }
             }
-            if (battleResultEnemy.IsAttack && battleResultPlayer.IsDefense)
+            else if (battleResultEnemy.IsAttack && battleResultPlayer.IsDefense)
             {
                 var damage = battleResultEnemy.AttackDamage / 2;
                 if (damage > 0)
                 {
-                    Console.WriteLine($"{player.Name} utilizou defesa!");
-                    Console.WriteLine($"O inimigo causou {damage} de dano!");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerSuccessDefenseMessage(damage));
+
                     player.Hp -= damage;
                 }
                 else
-                    Console.WriteLine($"O inimigo errou o ataque, porém {player.Name} defendeu, que azar...");
+                    Console.WriteLine(GetEnemyMessage.GetEnemyMissedButPlayerDefendedMessages(player.Name));
 
                 if (player.Hp <= 0)
                 {
-                    Console.WriteLine("Seu inimigo te derrotou!");
-                    Console.WriteLine("Derrota...");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerDefeatMessages);
+                    Console.WriteLine(GetPlayerMessage.GetPlayerDefeatTitleMessages);
                     battleContinues = false;
                 }
             }
-            if (battleResultPlayer.IsAttack && !battleResultEnemy.IsDefense)
+            else if (battleResultPlayer.IsAttack && !battleResultEnemy.IsDefense)
             {
                 var damage = battleResultPlayer.AttackDamage;
                 if (damage > 0)
                 {
                     if (battleResultPlayer.AttackType == EnumAction.HeavyAttack)
-                        Console.WriteLine($"{player.Name} causou {damage} de dano no inimigo, um ataque devastador!");
-                    else
-                        Console.WriteLine($"{player.Name} causou {damage} de dano no inimigo!");
+                        Console.WriteLine(GetPlayerMessage.GetPlayerSuccessHeavyAttackMessage(damage));
+
+                    else if (battleResultPlayer.AttackType == EnumAction.MediumAttack)
+                        Console.WriteLine(GetPlayerMessage.GetPlayerSuccessMediumAttackMessage(damage));
+
+                    else if (battleResultPlayer.AttackType == EnumAction.LightAttack)
+                        Console.WriteLine(GetPlayerMessage.GetPlayerSuccessLightAttackMessage(damage));
 
                     enemy.Hp -= damage;
                 }
                 else
-                    Console.WriteLine("Você errou o ataque, que pena...");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerMissedAttackMessages);
 
                 if (enemy.Hp <= 0)
                 {
@@ -90,27 +101,47 @@ namespace JogoBatalha.Round
                     battleContinues = false;
                 }
             }
-            if (battleResultEnemy.IsAttack && !battleResultPlayer.IsDefense)
+            else if (battleResultEnemy.IsAttack && !battleResultPlayer.IsDefense)
             {
                 var damage = battleResultPlayer.AttackDamage;
                 if (damage > 0)
                 {
-                    if (battleResultPlayer.AttackType == EnumAction.HeavyAttack)
-                        Console.WriteLine($"O inimigo causou {damage} de dano no(a) {player.Name}, um ataque devastador!");
-                    else
-                        Console.WriteLine($"O inimigo causou {damage} de dano no(a) {player.Name}!");
+                    if (battleResultEnemy.AttackType == EnumAction.HeavyAttack)
+                        Console.WriteLine(GetEnemyMessage.GetEnemySuccessHeavyAttackMessages(damage));
+
+                    else if (battleResultEnemy.AttackType == EnumAction.MediumAttack)
+                        Console.WriteLine(GetEnemyMessage.GetEnemySuccessMediumAttackMessages(damage));
+
+                    else if (battleResultEnemy.AttackType == EnumAction.LightAttack)
+                        Console.WriteLine(GetEnemyMessage.GetEnemySuccessLightAttackMessages(damage));
 
                     player.Hp -= damage;
                 }
                 else
-                    Console.WriteLine("O inimigo errou o ataque, que sorte...");
+                    Console.WriteLine(GetEnemyMessage.GetEnemyMissedMessages);
 
                 if (player.Hp <= 0)
                 {
-                    Console.WriteLine("Seu inimigo te derrotou!");
-                    Console.WriteLine("Derrota...");
+                    Console.WriteLine(GetPlayerMessage.GetPlayerDefeatMessages);
+                    Console.WriteLine(GetPlayerMessage.GetPlayerDefeatTitleMessages);
                     battleContinues = false;
                 }
+            }
+            else if (battleResultEnemy.IsDefense && battleResultPlayer.IsDefense)
+            {
+                Console.WriteLine(GetEnemyMessage.GetBothUsingDefense);
+            }
+            if (battleResultEnemy.IsCure)
+            {
+                if (enemy.HealthPotionStock.Count > 0)
+                {
+                    enemy.Hp += battleResultEnemy.CureValue;
+                    enemy.HealthPotionStock.RemoveAt(enemy.HealthPotionStock.Count - 1);
+                    Console.WriteLine(GetEnemyMessage.GetEnemySuccesTakePotionMessage);
+                }
+
+                else if (enemy.HealthPotionStock.Count == 0)
+                    Console.WriteLine(GetEnemyMessage.GetEnemyFailureTakePotionStockMessage);
             }
             return battleContinues;
         }

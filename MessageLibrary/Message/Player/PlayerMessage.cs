@@ -6,7 +6,7 @@ public static class PlayerMessage
 {
     #region PotionMessage
 
-    public static Dictionary<EnumLanguage, List<string>> ListSuccessTakePotionMessage = new Dictionary<EnumLanguage, List<string>>
+    public static Dictionary<EnumLanguage, List<string>> SuccessTakePotionMessages = new Dictionary<EnumLanguage, List<string>>
     {
         { EnumLanguage.Portuguese, new List<string>{
             "Você bebe a poção e sente uma energia revitalizante! +20 de vida.",
@@ -31,7 +31,7 @@ public static class PlayerMessage
         } }
     };
 
-    public static Dictionary<EnumLanguage, List<string>> ListFailureTakePotionStockMessage = new Dictionary<EnumLanguage, List<string>>
+    public static Dictionary<EnumLanguage, List<string>> FailureTakePotionStockMessages = new Dictionary<EnumLanguage, List<string>>
     {
         { EnumLanguage.Portuguese, new List<string>
         {
@@ -59,7 +59,7 @@ public static class PlayerMessage
         } }
     };
 
-    public static Dictionary<EnumLanguage, List<string>> ListFailureTakePotionHPMessage = new Dictionary<EnumLanguage, List<string>>
+    public static Dictionary<EnumLanguage, List<string>> FailureTakePotionHPMessages = new Dictionary<EnumLanguage, List<string>>
     {
         { EnumLanguage.Portuguese, new List<string>
         {
@@ -87,7 +87,7 @@ public static class PlayerMessage
         } }
     };
 
-    public static Dictionary<EnumLanguage, List<string>> ListFailureTakePotionStockAndHPMessage = new Dictionary<EnumLanguage, List<string>>
+    public static Dictionary<EnumLanguage, List<string>> FailureTakePotionStockAndHPMessages = new Dictionary<EnumLanguage, List<string>>
     {
         { EnumLanguage.Portuguese, new List<string>
         {
@@ -150,6 +150,36 @@ public static class PlayerMessage
         }
     };
 
+    public static Dictionary<EnumLanguage, List<string>> PlayerMissedAttackMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "Você errou o ataque, que pena...",
+                "Seu golpe passou direto. Que azar!",
+                "Você ataca… mas o inimigo já não está mais lá.",
+                "O ataque falha! O inimigo saiu ileso.",
+                "Você perdeu a chance. O inimigo escapou por pouco!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "You missed the attack, what a shame...",
+                "Your strike went wide. Bad luck!",
+                "You attack… but the enemy isn’t there anymore.",
+                "The attack fails! The enemy remains unharmed.",
+                "You lost the moment. The enemy narrowly escaped!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Saldırıyı ıskaladın, ne yazık...",
+                "Darbe boşa gitti. Kötü şans!",
+                "Saldırdın… ama düşman artık orada değildi.",
+                "Saldırı başarısız! Düşman zarar görmedi.",
+                "Fırsatı kaçırdın. Düşman kıl payı kurtuldu!"
+            }
+        }
+    };
 
     #region LightAttack
 
@@ -445,6 +475,8 @@ public static class PlayerMessage
 
     #endregion
 
+    #endregion
+
     #region Defense
 
     #region Success
@@ -508,6 +540,8 @@ public static class PlayerMessage
     #endregion
 
     #endregion
+
+    #region ContextBattle
 
     public static Dictionary<EnumLanguage, List<string>> VictoryMessages = new()
     {
@@ -632,8 +666,6 @@ public static class PlayerMessage
             }
         }
     };
-
-
 
     #endregion
 }

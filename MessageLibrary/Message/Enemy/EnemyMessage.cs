@@ -5,6 +5,7 @@ namespace MessageLibrary.Message.Enemy;
 public static class EnemyMessage
 {
     #region PotionMessage
+
     public static Dictionary<EnumLanguage, List<string>> SuccessTakePotionMessages = new Dictionary<EnumLanguage, List<string>>
     {
         { EnumLanguage.Portuguese, new List<string>
@@ -35,6 +36,35 @@ public static class EnemyMessage
             }
         }
     };
+
+    public static Dictionary<EnumLanguage, List<string>> EnemyFailureTakePotionStockMessage = new Dictionary<EnumLanguage, List<string>>
+    {
+        { EnumLanguage.Portuguese, new List<string>
+        {
+            "O inimigo revira a mochila... nenhuma poção encontrada!",
+            "O inimigo procura freneticamente, mas só encontra frascos vazios...",
+            "Sem poções restantes! Parece que o inimigo está ficando sem recursos.",
+            "*Sacode a mochila* Apenas o som de vidros vazios vindo do inimigo...",
+            "O inimigo jurou ter guardado uma poção... Mas onde foi parar?"
+        } },
+        { EnumLanguage.English, new List<string>
+        {
+            "The enemy rummages through the backpack... no potions found!",
+            "The enemy searches frantically but only finds empty vials...",
+            "No potions left! Looks like the enemy is running low on supplies.",
+            "*Shakes backpack* Only the sound of empty glass from the enemy...",
+            "The enemy swore a potion was stored... But where did it go?"
+        } },
+        { EnumLanguage.Turkish, new List<string>
+        {
+            "Düşman sırt çantasını karıştırıyor... hiç iksir bulunamadı!",
+            "Düşman çılgınca arıyor ama sadece boş şişeler buluyor...",
+            "Hiç iksir kalmadı! Görünüşe göre düşmanın kaynakları tükeniyor.",
+            "*Çanta sallanıyor* Düşmandan sadece boş cam sesleri geliyor...",
+            "Düşman burada bir iksir sakladığına yemin edebilirdi... Ama nereye gitti?"
+        } }
+    };
+
     #endregion
 
     #region Attack
@@ -137,40 +167,74 @@ public static class EnemyMessage
             }
         }
     };
-    #endregion
 
-    #endregion
-
-    public static Dictionary<EnumLanguage, List<string>> EnemyDefendedButPlayerDidNotAttackMessages = new()
+    public static Dictionary<EnumLanguage, List<string>> EnemyMissedButPlayerDefendedMessages = new()
     {
         { EnumLanguage.Portuguese, new()
             {
-                "O inimigo assume postura defensiva… contra o nada. Você não atacou!",
-                "Ele se protege, mas seu golpe nunca veio. Defesa desperdiçada!",
-                "O adversário ergue a guarda por precaução — um ataque que nunca aconteceu.",
-                "Com olhos atentos, o inimigo defende… o vazio.",
-                "Ele se esconde atrás da defesa, mas você estava apenas observando."
+                "O inimigo errou o ataque, porém {playerName} defendeu, que azar...",
+                "Mesmo se defendendo, {playerName} nem precisou — o inimigo errou feio!",
+                "{playerName} estava em guarda, mas o ataque do inimigo foi inútil.",
+                "O inimigo falhou e {playerName} ainda estava preparado. Azar total!",
+                "O ataque do inimigo foi tão desastroso que {playerName} nem precisaria se defender..."
             }
         },
         { EnumLanguage.English, new()
             {
-                "The enemy braces for an attack… but you didn't strike!",
-                "They shield themselves, but your blow never came. A wasted defense!",
-                "The opponent raises their guard — for a threat that never arrived.",
-                "Alert and defensive, the enemy prepares… for nothing.",
-                "They hide behind their defense, but you were just watching."
+                "The enemy missed the attack, but {playerName} defended anyway — what bad luck...",
+                "{playerName} was ready, but the enemy still missed completely!",
+                "Even with {playerName} guarding, the enemy’s attack failed miserably.",
+                "The enemy struck and failed — and {playerName} didn’t even need to block.",
+                "What a disaster for the enemy! {playerName} was defending, but it wasn’t needed."
             }
         },
         { EnumLanguage.Turkish, new()
             {
-                "Düşman savunma pozisyonu alıyor… ama sen saldırmadın!",
-                "Kendini koruyor ama saldırın hiç gelmedi. Boşa harcanan bir savunma!",
-                "Rakip gardını kaldırıyor — ama tehdit hiç ortaya çıkmadı.",
-                "Dikkatli ve savunmada… ama ortada saldırı yok.",
-                "Savunmanın arkasına saklanıyor, ama sen sadece izliyordun."
+                "Düşman saldırıyı ıskaladı ama {playerName} yine de savunmadaydı — ne talihsizlik...",
+                "{playerName} hazırdı ama düşman tamamen ıskaladı!",
+                "{playerName} gardını almıştı ama düşmanın saldırısı boşa gitti.",
+                "Düşman saldırdı ama {playerName} sadece izledi. Tam bir başarısızlık!",
+                "{playerName} savunmadaydı ama düşmanın saldırısı zaten işe yaramadı."
             }
         }
     };
+
+
+    public static Dictionary<EnumLanguage, List<string>> EnemyMissedMessages = new()
+    {
+        { EnumLanguage.Portuguese, new()
+            {
+                "O inimigo errou o ataque, que sorte...",
+                "Você escapa por pouco — o inimigo erra o golpe!",
+                "O inimigo ataca, mas você se livra ileso. Que sorte!",
+                "Por um triz! O inimigo falha no ataque.",
+                "O inimigo errou feio. A sorte sorriu pra você!"
+            }
+        },
+        { EnumLanguage.English, new()
+            {
+                "The enemy missed the attack — how lucky...",
+                "You barely dodge — the enemy's strike fails!",
+                "The enemy attacks, but you come out unharmed. Lucky!",
+                "So close! The enemy misses their attack.",
+                "The enemy missed badly. Luck was on your side!"
+            }
+        },
+        { EnumLanguage.Turkish, new()
+            {
+                "Düşman saldırıyı ıskaladı, ne şans...",
+                "Kıl payı kurtuldun — düşmanın saldırısı boşa gitti!",
+                "Düşman saldırdı ama sana zarar veremedi. Şanslısın!",
+                "Ucu ucuna! Düşman hedefi ıskaladı.",
+                "Düşman büyük hata yaptı. Şans senden yanaydı!"
+            }
+        }
+    };
+
+
+    #endregion
+
+    #endregion
 
     public static Dictionary<EnumLanguage, List<string>> BothDefendedMessages = new()
     {

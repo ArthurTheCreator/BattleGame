@@ -7,7 +7,7 @@ namespace MessageLibrary.Message.GetMessage
     {
         public static EnumLanguage Language { get; set; }
 
-        public static string GetBattleContextWelcomeMessage 
+        public static string GetBattleContextWelcomeMessage
         {
             get
             {
@@ -43,13 +43,15 @@ namespace MessageLibrary.Message.GetMessage
             }
         }
 
-        public static string GetBattleContextMenuChoices
+        public static string GetBattleContextMenuChoices(string playerName, int playerHp, int enemyHp)
         {
-            get
-            {
-                return BattleContext.MenuChoices[Language];
-            }
+            var message = BattleContext.MenuChoices[Language];
+            return message
+                .Replace("{playerName}", playerName)
+                .Replace("{playerHp}", playerHp.ToString())
+                .Replace("{enemyHp}", enemyHp.ToString());
         }
+
 
         public static string GetBattleContextPressAnyKeyMessage
         {

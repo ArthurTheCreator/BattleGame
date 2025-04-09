@@ -138,7 +138,10 @@ namespace MessageLibrary.Message.Battle
                 2-	 Ataque Médio
                 3-	 Ataque Pesado
                 4-	 Usar Defesa
-                5-	 Usar poção de Cura" },
+                5-	 Usar poção de Cura
+
+        Vida de {playerName}: {playerHp}
+        Vida do inimigo: {enemyHp}" },
 
             { EnumLanguage.English,
                 @"What will be your choice?
@@ -147,7 +150,10 @@ namespace MessageLibrary.Message.Battle
                 2-	 Medium Attack
                 3-	 Heavy Attack
                 4-	 Use Defense
-                5-	 Use Healing Potion" },
+                5-	 Use Healing Potion
+
+        {playerName}'s HP: {playerHp}
+        Enemy's HP: {enemyHp}" },
 
             { EnumLanguage.Turkish,
                 @"Seçimin ne olacak?
@@ -156,8 +162,12 @@ namespace MessageLibrary.Message.Battle
                 2-	 Orta Seviye Saldırı
                 3-	 Ağır Saldırı
                 4-	 Savunma Kullan
-                5-	 İyileştirme İksiri Kullan" }
+                5-	 İyileştirme İksiri Kullan
+
+        {playerName} canı: {playerHp}
+        Düşmanın canı: {enemyHp}" }
         };
+
 
         public static Dictionary<EnumLanguage, string> ArenaTitle = new Dictionary<EnumLanguage, string>
         {
