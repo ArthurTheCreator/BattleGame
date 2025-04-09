@@ -87,6 +87,7 @@ namespace JogoBatalha.Round
                     Console.WriteLine(GetPlayerMessage.GetPlayerVictoryMessages);
                     Console.WriteLine(GetPlayerMessage.GetPlayerVictoryTitleMessages);
                     battleContinues = false;
+                    return battleContinues;
                 }
             }
             #endregion
@@ -126,6 +127,7 @@ namespace JogoBatalha.Round
                     Console.WriteLine(GetPlayerMessage.GetPlayerDefeatMessages);
                     Console.WriteLine(GetPlayerMessage.GetPlayerDefeatTitleMessages);
                     battleContinues = false;
+                    return battleContinues;
                 }
             }
             #endregion
