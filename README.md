@@ -49,7 +49,5 @@ Esse sistema introduz elementos de estratégia e imprevisibilidade ao jogo.
 - 🇬🇧 English
 - 🇹🇷 Türkçe
 
-A tradução é gerenciada por meio de arquivos `.resx` seguindo os padrões do .NET.
-
 ---
 
